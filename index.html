@@ -51,13 +51,7 @@
         }
 
         .toolbar {
-            padding: 20px 24px;
-            background: white;
-            border-bottom: 1px solid #e9ecef;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            display: none;
         }
 
         .toolbar-label {
@@ -174,10 +168,47 @@
             font-size: 14px;
             font-weight: 500;
             transition: all 0.2s;
+            margin-bottom: 8px;
         }
 
         .new-note-btn:hover {
             background: #2980b9;
+        }
+
+        .data-actions {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .data-btn {
+            flex: 1;
+            padding: 6px;
+            background: white;
+            color: #6c757d;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: all 0.2s;
+        }
+
+        .data-btn:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+            color: #495057;
+        }
+
+        .data-btn.export:hover {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .data-btn.import:hover {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
         }
 
         .notes-list {
@@ -190,8 +221,8 @@
             background: white;
             border: 1px solid #e9ecef;
             border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 8px;
+            padding: 8px 10px;
+            margin-bottom: 6px;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -207,10 +238,10 @@
         }
 
         .note-title {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -220,30 +251,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
+            font-size: 11px;
             color: #6c757d;
         }
 
         .note-date {
-            font-size: 11px;
+            font-size: 10px;
         }
 
         .note-reviews {
             background: #e3f2fd;
             color: #2196f3;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 10px;
             font-weight: 600;
         }
 
         .note-delete {
-            margin-top: 8px;
-            padding: 4px 8px;
+            margin-top: 4px;
+            padding: 3px 6px;
             background: transparent;
             border: 1px solid #dee2e6;
-            border-radius: 4px;
-            font-size: 11px;
+            border-radius: 3px;
+            font-size: 10px;
             color: #adb5bd;
             cursor: pointer;
             transition: all 0.2s;
@@ -253,6 +284,120 @@
             background: #e74c3c;
             color: white;
             border-color: #e74c3c;
+        }
+
+        /* 文件夹样式 */
+        .folder-item {
+            margin-bottom: 4px;
+        }
+
+        .folder-header {
+            display: flex;
+            align-items: center;
+            padding: 6px 8px;
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            gap: 6px;
+        }
+
+        .folder-header:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+        }
+
+        .folder-toggle {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #6c757d;
+            transition: transform 0.2s;
+        }
+
+        .folder-toggle.expanded {
+            transform: rotate(90deg);
+        }
+
+        .folder-name {
+            flex: 1;
+            font-size: 12px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .folder-count {
+            font-size: 10px;
+            color: #adb5bd;
+        }
+
+        .folder-actions {
+            display: flex;
+            gap: 4px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .folder-header:hover .folder-actions {
+            opacity: 1;
+        }
+
+        .folder-btn {
+            padding: 2px 6px;
+            font-size: 10px;
+            background: transparent;
+            border: 1px solid #dee2e6;
+            border-radius: 3px;
+            cursor: pointer;
+            color: #6c757d;
+            transition: all 0.2s;
+        }
+
+        .folder-btn:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .folder-content {
+            margin-left: 16px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .folder-content.expanded {
+            display: block;
+        }
+
+        .create-folder-btn {
+            width: 100%;
+            padding: 6px;
+            background: transparent;
+            color: #6c757d;
+            border: 1px dashed #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+            margin-bottom: 8px;
+        }
+
+        .create-folder-btn:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+            color: #495057;
+        }
+
+        .note-item.dragging {
+            opacity: 0.5;
+        }
+
+        .folder-header.drag-over {
+            background: #e3f2fd;
+            border-color: #3498db;
         }
 
         .content {
@@ -886,6 +1031,11 @@
                 <div class="sidebar-header">
                     <div class="sidebar-title">我的笔记</div>
                     <button class="new-note-btn" onclick="createNewNote()">+ 新建笔记</button>
+                    <div class="data-actions">
+                        <button class="data-btn export" onclick="exportData()" title="导出数据到JSON文件">💾 导出</button>
+                        <button class="data-btn import" onclick="importData()" title="从JSON文件导入数据">📂 导入</button>
+                    </div>
+                    <input type="file" id="importFileInput" accept=".json" style="display:none;" onchange="handleImportFile(event)">
                 </div>
                 <div class="notes-list" id="notesList"></div>
             </div>
@@ -975,12 +1125,14 @@
         const toastContainer = document.getElementById('toastContainer');
         
         let notes = [];
+        let folders = [];
         let currentNoteId = null;
         let selectedRange = null;
         let selectedColor = null;
         let selectedTextColor = null;
         let annotationCount = 0;
         let activeStyledElement = null; // 当前正在编辑样式的元素
+        let draggedNoteId = null; // 正在拖动的笔记ID
 
         // Toast提示函数
         function showToast(message, type = 'info') {
@@ -1094,7 +1246,12 @@
         function init() {
             loadNotes();
             renderNotesList();
-            if (notes.length > 0) {
+            
+            // 恢复上次打开的笔记
+            const lastNoteId = localStorage.getItem('lastNoteId');
+            if (lastNoteId && notes.find(n => n.id === parseInt(lastNoteId))) {
+                loadNote(parseInt(lastNoteId));
+            } else if (notes.length > 0) {
                 loadNote(notes[0].id);
             } else {
                 createNewNote();
@@ -1130,6 +1287,9 @@
             noteTitle.value = note.title;
             editor.innerHTML = note.content || '';
             improvedEditor.innerHTML = note.improved || '';
+            
+            // 保存当前笔记ID，用于下次自动恢复
+            localStorage.setItem('lastNoteId', noteId);
             
             updateStats();
             updateReviewHistory(note.reviews || []);
@@ -1194,15 +1354,87 @@
             `;
         }
 
-        // 渲染笔记列表
-        function renderNotesList() {
-            if (notes.length === 0) {
-                notesList.innerHTML = '<div class="empty-state" style="padding:20px;">暂无笔记</div>';
-                return;
-            }
+        // 创建文件夹
+        function createFolder(parentId = null) {
+            const folderName = prompt('请输入文件夹名称：', '新建文件夹');
+            if (!folderName || !folderName.trim()) return;
             
-            notesList.innerHTML = notes.map(note => `
-                <div class="note-item ${note.id === currentNoteId ? 'active' : ''}" onclick="loadNote(${note.id})">
+            const newFolder = {
+                id: Date.now(),
+                name: folderName.trim(),
+                parentId: parentId,
+                expanded: true
+            };
+            
+            folders.push(newFolder);
+            saveNotes();
+            renderNotesList();
+            showToast('文件夹已创建', 'success');
+        }
+        
+        // 删除文件夹
+        function deleteFolder(folderId) {
+            const folder = folders.find(f => f.id === folderId);
+            if (!folder) return;
+            
+            // 检查文件夹内是否有笔记
+            const notesInFolder = notes.filter(n => n.folderId === folderId);
+            const subFolders = folders.filter(f => f.parentId === folderId);
+            
+            if (notesInFolder.length > 0 || subFolders.length > 0) {
+                showConfirm(`文件夹"${folder.name}"中还有内容，删除将把所有内容移到根目录，是否继续？`, () => {
+                    // 移动笔记到根目录
+                    notesInFolder.forEach(note => {
+                        note.folderId = null;
+                    });
+                    // 移动子文件夹到根目录
+                    subFolders.forEach(f => {
+                        f.parentId = null;
+                    });
+                    // 删除文件夹
+                    folders = folders.filter(f => f.id !== folderId);
+                    saveNotes();
+                    renderNotesList();
+                    showToast('文件夹已删除', 'success');
+                });
+            } else {
+                folders = folders.filter(f => f.id !== folderId);
+                saveNotes();
+                renderNotesList();
+                showToast('文件夹已删除', 'success');
+            }
+        }
+        
+        // 切换文件夹展开/折叠
+        function toggleFolder(folderId) {
+            const folder = folders.find(f => f.id === folderId);
+            if (folder) {
+                folder.expanded = !folder.expanded;
+                saveNotes();
+                renderNotesList();
+            }
+        }
+        
+        // 移动笔记到文件夹
+        function moveNoteToFolder(noteId, folderId) {
+            const note = notes.find(n => n.id === noteId);
+            if (note) {
+                note.folderId = folderId;
+                saveNotes();
+                renderNotesList();
+                showToast('已移动到文件夹', 'success');
+            }
+        }
+        
+        // 渲染单个笔记项
+        function renderNoteItem(note) {
+            return `
+                <div class="note-item ${note.id === currentNoteId ? 'active' : ''}" 
+                     draggable="true"
+                     data-note-id="${note.id}"
+                     onclick="loadNote(${note.id})"
+                     ondragstart="handleNoteDragStart(event, ${note.id})"
+                     ondragend="handleNoteDragEnd(event)">
                     <div class="note-title">${note.title}</div>
                     <div class="note-meta">
                         <span class="note-date">${new Date(note.createdAt).toLocaleDateString()}</span>
@@ -1210,7 +1442,60 @@
                     </div>
                     <button class="note-delete" onclick="event.stopPropagation(); deleteNote(${note.id})">删除</button>
                 </div>
-            `).join('');
+            `;
+        }
+        
+        // 渲染文件夹及其内容
+        function renderFolder(folder, level = 0) {
+            const notesInFolder = notes.filter(n => n.folderId === folder.id);
+            const subFolders = folders.filter(f => f.parentId === folder.id);
+            const totalCount = notesInFolder.length;
+            
+            return `
+                <div class="folder-item" style="margin-left: ${level * 12}px">
+                    <div class="folder-header" 
+                         data-folder-id="${folder.id}"
+                         ondragover="handleFolderDragOver(event)"
+                         ondragleave="handleFolderDragLeave(event)"
+                         ondrop="handleFolderDrop(event, ${folder.id})">
+                        <div class="folder-toggle ${folder.expanded ? 'expanded' : ''}" 
+                             onclick="event.stopPropagation(); toggleFolder(${folder.id})">▸</div>
+                        <div class="folder-name" onclick="toggleFolder(${folder.id})">${folder.name}</div>
+                        <span class="folder-count">${totalCount}</span>
+                        <div class="folder-actions">
+                            <button class="folder-btn" onclick="event.stopPropagation(); createFolder(${folder.id})" title="添加子文件夹">+</button>
+                            <button class="folder-btn" onclick="event.stopPropagation(); deleteFolder(${folder.id})" title="删除文件夹">×</button>
+                        </div>
+                    </div>
+                    <div class="folder-content ${folder.expanded ? 'expanded' : ''}">
+                        ${subFolders.map(f => renderFolder(f, level + 1)).join('')}
+                        ${notesInFolder.map(note => renderNoteItem(note)).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // 渲染笔记列表
+        function renderNotesList() {
+            // 渲染根文件夹
+            const rootFolders = folders.filter(f => !f.parentId);
+            const rootNotes = notes.filter(n => !n.folderId);
+            
+            let html = '<button class="create-folder-btn" onclick="createFolder()">+ 创建文件夹</button>';
+            
+            // 渲染文件夹
+            html += rootFolders.map(folder => renderFolder(folder, 0)).join('');
+            
+            // 渲染根目录下的笔记
+            if (rootNotes.length > 0) {
+                html += rootNotes.map(note => renderNoteItem(note)).join('');
+            }
+            
+            if (notes.length === 0 && folders.length === 0) {
+                html += '<div class="empty-state" style="padding:20px;text-align:center;color:#adb5bd;">暂无笔记</div>';
+            }
+            
+            notesList.innerHTML = html;
         }
 
         // 删除笔记
@@ -1235,6 +1520,7 @@
         // 保存笔记列表
         function saveNotes() {
             localStorage.setItem('notes', JSON.stringify(notes));
+            localStorage.setItem('folders', JSON.stringify(folders));
         }
 
         // 加载笔记列表
@@ -1242,6 +1528,10 @@
             const saved = localStorage.getItem('notes');
             if (saved) {
                 notes = JSON.parse(saved);
+            }
+            const savedFolders = localStorage.getItem('folders');
+            if (savedFolders) {
+                folders = JSON.parse(savedFolders);
             }
         }
 
@@ -1860,6 +2150,116 @@
                 hideToolbar();
             }
         });
+
+        // 导出数据到JSON文件
+        function exportData() {
+            const data = {
+                notes: notes,
+                folders: folders,
+                exportDate: new Date().toISOString(),
+                version: '1.0'
+            };
+            
+            const dataStr = JSON.stringify(data, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `notes-backup-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showToast('数据已导出！请保存到data文件夹', 'success');
+        }
+        
+        // 触发导入文件选择
+        function importData() {
+            document.getElementById('importFileInput').click();
+        }
+        
+        // 处理导入的文件
+        function handleImportFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    // 验证数据格式
+                    if (!data.notes || !Array.isArray(data.notes)) {
+                        showToast('无效的数据格式', 'error');
+                        return;
+                    }
+                    
+                    // 确认导入
+                    showConfirm(`确定要导入数据吗？这将替换当前所有笔记和文件夹（共${data.notes.length}个笔记，${data.folders ? data.folders.length : 0}个文件夹）`, () => {
+                        notes = data.notes;
+                        folders = data.folders || [];
+                        saveNotes();
+                        renderNotesList();
+                        
+                        // 加载第一个笔记或创建新笔记
+                        if (notes.length > 0) {
+                            loadNote(notes[0].id);
+                        } else {
+                            createNewNote();
+                        }
+                        
+                        showToast(`成功导入${notes.length}个笔记！`, 'success');
+                    });
+                } catch (error) {
+                    console.error('导入失败:', error);
+                    showToast('导入失败，请检查文件格式', 'error');
+                }
+            };
+            reader.readAsText(file);
+            
+            // 重置文件输入
+            event.target.value = '';
+        }
+        
+        // 拖放事件处理
+        function handleNoteDragStart(event, noteId) {
+            draggedNoteId = noteId;
+            event.target.classList.add('dragging');
+            event.dataTransfer.effectAllowed = 'move';
+        }
+        
+        function handleNoteDragEnd(event) {
+            event.target.classList.remove('dragging');
+            draggedNoteId = null;
+            // 移除所有拖放高亮
+            document.querySelectorAll('.folder-header').forEach(header => {
+                header.classList.remove('drag-over');
+            });
+        }
+        
+        function handleFolderDragOver(event) {
+            if (!draggedNoteId) return;
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            event.currentTarget.classList.add('drag-over');
+        }
+        
+        function handleFolderDragLeave(event) {
+            event.currentTarget.classList.remove('drag-over');
+        }
+        
+        function handleFolderDrop(event, folderId) {
+            event.preventDefault();
+            event.stopPropagation();
+            event.currentTarget.classList.remove('drag-over');
+            
+            if (draggedNoteId) {
+                moveNoteToFolder(draggedNoteId, folderId);
+                draggedNoteId = null;
+            }
+        }
 
         // 初始化
         init();
